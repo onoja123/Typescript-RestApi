@@ -1,7 +1,12 @@
-import express from 'express';
+import express,{Express} from 'express';
 
-const app = express();
+const app: Express = express();
+const port = process.env.PORT || 3000;
 
-app.listen(1337, ()=>{
-    console.log("Server running")
-})
+app.get('/', (req: Request, res: Response) => {
+  res.send('Hello World!');
+});
+
+app.listen(port, () => {
+  console.log(`⚡️: Server is running at Port: ${port}`);
+});
